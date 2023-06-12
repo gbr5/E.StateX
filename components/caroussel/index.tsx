@@ -1,6 +1,7 @@
 import React from 'react';
 import { Slideshow } from "@taikai/rocket-kit";
-import { CarousselWrapper } from './styles';
+import { CarousselWrapper, Image } from './styles';
+// import Image from 'next/image';
 
 const Caroussel = () => {
 
@@ -15,19 +16,25 @@ const Caroussel = () => {
         slidesNumber={3}
         stopOnHover
       >
-        <img
+        <Image
           alt="img"
           src="/sea_view.png"
+        // width={100}
+        // height={800}
         // src="/images/sea_view.png"
         />
-        <img
+        <Image
           alt="img"
           src="/living_room.png"
+        // width={100}
+        // height={800}
         // src="/images/living_room.png"
         />
-        <img
+        <Image
           alt="img"
           src="/balcon.png"
+        // width={100}
+        // height={800}
         // src="/images/balcon.png"
         />
       </Slideshow>

@@ -8,3 +8,7 @@ export const CarousselWrapper = styled.div`
   height: 100%;
   z-index: -1;
 `;
+
+export const Image = styled.img`
+
+`;

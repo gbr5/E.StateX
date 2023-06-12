@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useWeb3 } from "../../hooks/useWeb3";
 import Image from "next/image";
 import { Modal, ModalFooter, Button } from "@taikai/rocket-kit";
-import { ConnectorList,Warning, Connector, Alert,  Agreement, AddressStyle}  from "./styles"
+import { ConnectorList, Warning, Connector, Alert, Agreement, AddressStyle } from "./styles"
 import useAddress from "../../hooks/useAddress";
 import useMetaMaskOnboarding from "@/hooks/useMetaMaskOnboarding";
 
@@ -12,18 +12,18 @@ interface Props {
   onClose: OnCloseFunctionType;
 }
 
-const ShowEthAddress = ()=> {
+const ShowEthAddress = () => {
   const { address = "" } = useAddress();
   return (
     <AddressStyle>
       {address}
-  </AddressStyle>
+    </AddressStyle>
   );
 }
 
 const ConnectWalletModal: React.FC<Props> = (props: Props) => {
   const { connected, connect, disconnect, error } = useWeb3();
-  const { isMetaMaskInstalled , startOnboarding } = useMetaMaskOnboarding();
+  const { isMetaMaskInstalled, startOnboarding } = useMetaMaskOnboarding();
   const { onClose } = props;
   return (
     <Modal
@@ -53,13 +53,13 @@ const ConnectWalletModal: React.FC<Props> = (props: Props) => {
             </Connector>
           </ConnectorList>
           <Agreement>
-            By connecting a wallet, you agree to the "LayerX Web Boilerplate" Terms of Service and
+            By connecting a wallet, you agree to the &quotLayerX Web Boilerplate&quot Terms of Service and
             consent to its Privacy Policy.
           </Agreement>
         </>
       )}
-       {!connected && !isMetaMaskInstalled && (
-        <>         
+      {!connected && !isMetaMaskInstalled && (
+        <>
           <ConnectorList>
             <Connector onClick={() => startOnboarding()}>
               <Image
@@ -70,13 +70,13 @@ const ConnectWalletModal: React.FC<Props> = (props: Props) => {
               />
               <span>Install Metamask</span>
             </Connector>
-          </ConnectorList>       
+          </ConnectorList>
           <Alert>
-           🚨 You don&apos;t have the metamask extension installed on your browser.
-          </Alert>  
+            🚨 You don&apos;t have the metamask extension installed on your browser.
+          </Alert>
         </>
       )}
-      {connected && isMetaMaskInstalled  && (
+      {connected && isMetaMaskInstalled && (
         <>
           <Warning>You are connected with Wallet address:</Warning>
           <ShowEthAddress />
