@@ -25,19 +25,19 @@ export default function Home() {
   const { connected } = useWeb3();
   const [isConnectModal, setConnectModal] = useState(false);
 
-  const [isSection2Active, setIsSection2Active] = useState(false);
+  // const [isSection2Active, setIsSection2Active] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const section1Height = document?.getElementById('section1').offsetHeight;
-      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     // const section1Height = document?.getElementById('section1').offsetHeight;
+  //     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
-      setIsSection2Active(scrollPosition >= section1Height);
-    };
+  //     setIsSection2Active(scrollPosition >= section1Height);
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
   return (
     <Container ref={section1Ref}>
