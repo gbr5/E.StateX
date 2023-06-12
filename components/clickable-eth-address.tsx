@@ -19,13 +19,15 @@ interface OnActionClick {
 const ClickableEthAddress = (props: OnActionClick) => {
   const { address = "" } = useAddress();
   const { onClick } = props;
+  const fixedAddress: string | undefined = address === null ? undefined : address && `${address.slice(0, 6)}...${address.slice(-4)}`
+
   return (
     <AddressOpen>
       <Button
         action={() => onClick()}
         color="grey100"
         txtColor="black"
-        value={address && `${address.slice(0, 6)}...${address.slice(-4)}`}
+        value={fixedAddress}
       />
     </AddressOpen>
   );
